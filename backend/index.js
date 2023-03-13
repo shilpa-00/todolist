@@ -11,7 +11,7 @@ app.use(cors());
 const uri=process.env.ATLAS_URI
 
 mongoose.connect(uri)
-const con=mongoose.connection
+const con=mongoose.connection   
 
 con.on('open',()=>{
     console.log('Database connected')

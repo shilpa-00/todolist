@@ -75,12 +75,12 @@ const ToDo = () => {
         setUpdateId(todo._id)
     }
     return (
-        <div className="flex flex-col gap-10">
-            <div>
-                <input type="text" ref={task} placeholder="Enter task" />
-                {update ? <button onClick={handleUpdateItem}>Update</button> : <button onClick={handleSubmit}>Add</button>}
+        <div className="flex flex-col m-10 gap-10 items-center font-sans">
+            <h1 className="text-4xl">To-Do list</h1>
+            <div className="flex gap-10 text-lg">
+                <input type="text" className="w-80 border h-10 pl-4 outline-none focus:border-black rounded-lg" ref={task} placeholder="Enter task" />
+                {update ? <button className="btn" onClick={handleUpdateItem}>Update</button> : <button className="btn" onClick={handleSubmit}>Add</button>}
             </div>
-            {/* <Display todos={todos} setTodos={setTodos} update={update} setUpdate={setUpdate} handleUpdate={handleUpdate}/> */}
             <div>
                 {todos.map(todo => (
                     <div key={todo._id} className="flex gap-4">
