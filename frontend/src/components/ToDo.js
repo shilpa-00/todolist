@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
+import {AiFillDelete} from 'react-icons/ai';
+import {MdModeEditOutline} from 'react-icons/md';
 
 const ToDo = () => {
     const task = useRef();
@@ -75,18 +77,20 @@ const ToDo = () => {
         setUpdateId(todo._id)
     }
     return (
-        <div className="flex flex-col m-10 gap-10 items-center font-sans">
-            <h1 className="text-4xl">To-Do list</h1>
-            <div className="flex gap-10 text-lg">
-                <input type="text" className="w-80 border h-10 pl-4 outline-none focus:border-black rounded-lg" ref={task} placeholder="Enter task" />
+        <div className="flex flex-col gap-10 items-center font-sans text-white">
+            <h1 className="text-6xl pt-10 font-bold text-blue-400">To-Do List</h1>
+            <div className="flex gap-10 pt-10 text-lg">
+                <input type="text" className="w-96 border h-10 pl-4 outline-none focus:border-black rounded-lg text-black shadow-md shadow-blue-400" ref={task} placeholder="Enter task" />
                 {update ? <button className="btn" onClick={handleUpdateItem}>Update</button> : <button className="btn" onClick={handleSubmit}>Add</button>}
             </div>
-            <div>
+            <div className="flex flex-col pt-4 items-center w-screen">
                 {todos.map(todo => (
-                    <div key={todo._id} className="flex gap-4">
+                    <div key={todo._id} className="flex justify-between w-1/4 border border-blue-400 p-2 text-lg">
                         <p>{todo.task}</p>
-                        <button className="border border-gray-600" onClick={() => handleUpdate(todo)}>Update</button>
-                        <button className="border border-gray-600" onClick={() => handleDelete(todo)}>Delete</button>
+                        <div className="flex gap-4">
+                            <button className="" onClick={() => handleUpdate(todo)}><MdModeEditOutline className="hover:text-blue-400"/></button>
+                            <button className="" onClick={() => handleDelete(todo)}><AiFillDelete className="hover:text-blue-400"/></button>
+                        </div>
                     </div>
                 ))
                 }

@@ -3,7 +3,7 @@ import ToDo from './components/ToDo';
 
 function App() {
   return (
-    <div>
+    <div className='bg-black h-screen'>
       <ToDo/>
     </div>
   );
